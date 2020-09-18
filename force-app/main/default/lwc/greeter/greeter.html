@@ -1,0 +1,23 @@
+<template>
+    <slot name="header">Default header</slot>
+
+    <div>
+        <lightning-input type="text" label="Enter your name" value={name}></lightning-input>
+        <lightning-button label="Greet" onclick={handleGreet}></lightning-button>
+    </div>
+
+    <div>
+        {message}
+    </div>
+
+    <template if:true={accounts}>
+        <ul>
+            <template for:each={accounts} for:item='account'>
+                <li key={account.Id}>{account.Name}</li>
+            </template>
+        </ul>
+    </template>
+
+    <slot name="footer">Default footer</slot>
+
+</template>
